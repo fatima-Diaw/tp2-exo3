@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<title>TP2_ex3_Json</title>
+
+</head>
+
+<body>
+
+	<div id="demo"></div>
+
+	<script>
+
+		var etudiant = {
+
+
+		"nom":"Fatoumata Bintou", 
+
+		"prenom":"Diaw",  
+
+		"note": {
+
+					"Algo":10,
+
+					"Html":12,
+
+					"Php":17,
+
+					"Mysql":13,
+
+					"Anglais":12,
+					
+					"Maths":13,
+
+					"XML":10,
+
+					"Json":15,
+
+					"Linux":20,
+
+					"Windows":19
+						
+
+				}		
+
+		};
+
+		
+
+		function afficherEtu(etu) {
+
+			var txt = "  ";
+
+		 	for (a in etu.note){ 
+
+		 		txt += etu.note[a]+", ";
+
+		 	}
+
+		 	document.getElementById("demo").innerHTML =etudiant.prenom+ " "+etudiant.nom + ":"+txt;
+
+		}
+
+		
+		function moyenneNote(etu){
+
+			var txt = 0;
+			var moy = 0;
+			for (a in etu.note) {
+
+ 				txt = txt+etu.note[a];
+				
+				moy = txt/10;
+
+ 			}
+
+ 			document.getElementById("demo").innerHTML = moy;
+
+		}
+		
+
+		function supprimerNote(etu){
+
+			var txt = " ";
+
+			var obj = window.prompt("saisir une note");
+
+			for (a in etu.note) {
+
+ 				if (etu.note[a] == obj){
+				delete etu.note[a];
+				
+				afficherEtu(etu);
+				}
+ 			}
+	
+		}
+
+	</script>
+
+
+
+	<button onclick="afficherEtu(etudiant)">Afficher</button>
+
+	<button onclick="moyenneNote(etudiant)">Moyenne</button>
+	
+	<button onclick="supprimerNote(etudiant)">Supprimer</button>
+
+
+
+
+
+</body>
+
+</html>
